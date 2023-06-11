@@ -1,25 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState,createContext} from "react";
+import CompA from './components/CompA';
+
+const AppState = createContext();
 
 function App() {
+
+  const [data,setData] = useState("Moin Khan");
+
   return (
+    <AppState.Provider value={data}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CompA />
     </div>
+    </AppState.Provider>
   );
 }
 
 export default App;
+export {AppState};
